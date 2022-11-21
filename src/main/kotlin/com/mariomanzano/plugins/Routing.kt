@@ -12,9 +12,17 @@ fun Application.configureRouting() {
     // Starting point for a Ktor app:
     routing {
         route("/notes"){
+
+            // CREATE
+
+            // READ
             get {
                 call.respond(NotesRepository.getAll())
             }
+
+            // UPDATE
+
+            // DELETE
         }
     }
 }
