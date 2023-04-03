@@ -7,10 +7,18 @@ plugins {
     kotlin("jvm") version "1.7.21"
     kotlin("plugin.serialization") version "1.7.21"
     id("io.ktor.plugin") version "2.1.3"
+    id("com.squareup.sqldelight") version "1.5.4"
 }
 
 group = "com.mariomanzano"
 version = "0.0.1"
+
+sqldelight {
+    database("AppDatabase"){
+        packageName = "com.mariomanzano.database"
+    }
+}
+
 application {
     mainClass.set("com.mariomanzano.ApplicationKt")
 
@@ -28,6 +36,8 @@ dependencies {
     implementation("io.ktor:ktor-server-html-builder:$ktor_version")
     implementation("io.ktor:ktor-server-content-negotiation:$ktor_version")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
+
+    implementation("com.squareup.sqldelight:sqlite-driver:1.5.4")
 
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
